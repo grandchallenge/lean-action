@@ -1,0 +1,3 @@
+* @grandchallenge/provider-maintainers
+/.github/workflows/ @grandchallenge/security @grandchallenge/provider-maintainers
+/action.yml @grandchallenge/security @grandchallenge/provider-maintainers
