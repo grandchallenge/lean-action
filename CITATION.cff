@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: Cite the exact immutable fork commit and the upstream lean-action project.
+title: Grand Challenge governed lean-action fork
+type: software
+authors:
+  - name: Grand Challenge Labs Council
+repository-code: https://github.com/grandchallenge/lean-action
+license: MIT

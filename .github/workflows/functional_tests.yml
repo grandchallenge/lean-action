@@ -21,6 +21,9 @@ env:
   toolchain: ${{ github.event.inputs.toolchain || 'leanprover/lean4:v4.26.0' }}
   modern_toolchain: leanprover/lean4:v4.28.0
 
+permissions:
+  contents: read
+
 jobs:
   lake-init-success:
     runs-on: ubuntu-latest
@@ -33,7 +36,7 @@ jobs:
         # see ./github/functional_tests/lake_init/action.yml for more details on lake-init-arguments
         lake-init-arguments: ["standalone", "mathdep math", "tomltest .toml"]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/lake_init_success
         with:
           lake-init-arguments: ${{ matrix.lake-init-arguments}}
@@ -42,7 +45,7 @@ jobs:
   lake-init-failure:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/lake_init_failure
         with:
           toolchain: ${{ env.toolchain }}
@@ -50,7 +53,7 @@ jobs:
   auto-config-true:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/auto_config_true
         with:
           toolchain: ${{ env.toolchain }}
@@ -58,7 +61,7 @@ jobs:
   auto-config-false:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/auto_config_false
         with:
           toolchain: ${{ env.toolchain }}
@@ -66,7 +69,7 @@ jobs:
   auto-config-false-modern-leanchecker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/auto_config_false
         with:
           toolchain: ${{ env.modern_toolchain }}
@@ -74,7 +77,7 @@ jobs:
   lake-build-args:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/lake_build_args
         with:
           toolchain: ${{ env.toolchain }}
@@ -82,7 +85,7 @@ jobs:
   lake-test-args:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/lake_test_args
         with:
           toolchain: ${{ env.toolchain }}
@@ -90,7 +93,7 @@ jobs:
   detect-mathlib:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/mathlib_dependency
         with:
           toolchain: ${{ env.toolchain }}
@@ -98,7 +101,7 @@ jobs:
   lake-test-success:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/lake_test_success
         with:
           toolchain: ${{ env.toolchain }}
@@ -106,7 +109,7 @@ jobs:
   lake-test-failure:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/lake_test_failure
         with:
           toolchain: ${{ env.toolchain }}
@@ -114,7 +117,7 @@ jobs:
   lake-lint-success:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/lake_lint_success
         with:
           toolchain: ${{ env.toolchain }}
@@ -122,7 +125,7 @@ jobs:
   lake-lint-failure:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/lake_lint_failure
         with:
           toolchain: ${{ env.toolchain }}
@@ -130,7 +133,7 @@ jobs:
   lake-check-test-failure:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/lake_check_test_failure
         with:
           toolchain: ${{ env.toolchain }}
@@ -138,7 +141,7 @@ jobs:
   subdirectory-lake-package:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/subdirectory_lake_package
         with:
           toolchain: ${{ env.toolchain }}
@@ -146,7 +149,7 @@ jobs:
   subdirectory-lake-package-lean-checker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/subdirectory_lake_package_lean_checker
         with:
           toolchain: ${{ env.modern_toolchain }}
@@ -154,7 +157,7 @@ jobs:
   reinstall-transient-toolchain:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/reinstall-transient-toolchain
         with:
           toolchain: ${{ env.toolchain }}
@@ -162,7 +165,7 @@ jobs:
   mk_all-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/mk_all-check
         with:
           toolchain: ${{ env.toolchain }}
@@ -170,7 +173,7 @@ jobs:
   macos-runner:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/lake_init_success
         with:
           lake-init-arguments: "standalone"
@@ -179,7 +182,7 @@ jobs:
   windows-runner:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: ./.github/functional_tests/lake_init_success
         with:
           lake-init-arguments: "standalone"
