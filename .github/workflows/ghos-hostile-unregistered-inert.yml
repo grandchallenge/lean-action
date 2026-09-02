@@ -8,8 +8,8 @@ permissions:
 
 jobs:
   inert:
-    if: ${{ false }}
-    runs-on: ubuntu-24.04
+    if: ${{ github.repository == 'grandchallenge/__ghos_never__' }}
+    runs-on: ubuntu-latest
     steps:
       - name: Inert sentinel
         run: echo "This hostile-proof job must never execute."
