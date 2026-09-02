@@ -51,6 +51,14 @@
       "controller_id": "GITHUB_ACTIONS"
     },
     {
+      "path": ".github/workflows/ghos-routing-enforcement-v2.yml",
+      "observed_features": [
+        "OPAQUE_EXECUTION"
+      ],
+      "topology": "PERSISTENT_CONTROLLER_REQUIRED",
+      "controller_id": "GITHUB_ACTIONS"
+    },
+    {
       "path": ".github/workflows/nanoda-daily.yml",
       "observed_features": [
         "OPAQUE_EXECUTION",
@@ -62,14 +70,6 @@
     },
     {
       "path": ".github/workflows/shellcheck.yml",
-      "observed_features": [
-        "OPAQUE_EXECUTION"
-      ],
-      "topology": "PERSISTENT_CONTROLLER_REQUIRED",
-      "controller_id": "GITHUB_ACTIONS"
-    },
-    {
-      "path": ".github/workflows/ghos-routing-enforcement-v2.yml",
       "observed_features": [
         "OPAQUE_EXECUTION"
       ],
