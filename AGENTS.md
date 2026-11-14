@@ -10,3 +10,4 @@ controls, and read back the result. Automation may not certify a claim,
 manufacture reserved authority, or push directly to a protected branch. A
 third-party Action must also be named in the organization allowlist; a SHA pin
 alone does not authorize it.
+For this upstream-derived Action, a standards adoption must not alter the Action's runtime behavior or weaken its required CI checks. Repair a missing check at its existing workflow or repository settings; do not manufacture a passing result.
